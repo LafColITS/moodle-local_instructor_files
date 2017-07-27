@@ -85,7 +85,7 @@ class local_instructor_files_helper {
 		           (ctx.path LIKE '%/$contextid' AND ctx.path LIKE '%$contextid'
 	         )
        )
-       AND (f.component != 'assignfeedback_editpdf' AND f.filearea != 'stamps')";
+       AND (f.component != 'assignfeedback_editpdf' AND f.component != 'backup' AND f.filearea != 'stamps')";
         $fileids = $DB->get_records_sql($query);
         return $fileids;
     }

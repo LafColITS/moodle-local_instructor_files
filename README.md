@@ -7,7 +7,7 @@ This local module allows a teacher to download all files uploaded by teachers to
 
 Requirements
 ------------
-- Moodle 3.1 (build 2016052300 or later)
+- Moodle 3.2 (build 2016120500 or later)
 
 Installation
 ------------
@@ -15,7 +15,7 @@ Copy the instructor_files folder into your /local directory and visit your Admin
 
 Usage
 -----
-The module adds a "Download instructor files" link to the Course administration navigation block.
+The module adds a "Download instructor files" link to the Course administration navigation block. By default the `editingteacher` and `teacher` roles are considered "instructors." Additional roles may be added in the plugin configuration page.
 
 Acknowledgements
 ----------------

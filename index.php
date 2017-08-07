@@ -35,7 +35,7 @@ $coursecontext = context_course::instance($course->id);
 require_capability('local/instructor_files:download', $coursecontext);
 
 // Get files.
-$zipfile = local_instructor_files_helper::get_files($course->id, $coursecontext->id);
+$zipfile = local_instructor_files\helper::get_files($course->id, $coursecontext->id);
 if ($zipfile !== false) {
     $filename = clean_filename($course->shortname .'.zip');
     send_temp_file($zipfile, $filename);

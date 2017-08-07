@@ -21,9 +21,12 @@
  * @copyright 2016 UMass Amherst
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+namespace local_instructor_files;
+
 defined('MOODLE_INTERNAL') || die();
 
-class local_instructor_files_helper {
+class helper {
     public static function get_files($courseid, $contextid) {
         global $CFG;
 
@@ -56,7 +59,7 @@ class local_instructor_files_helper {
     private static function pack_files($files) {
         global $CFG;
         $tempzip = tempnam($CFG->tempdir . '/', 'local_instructor_files_');
-        $zipper = new zip_packer();
+        $zipper = new \zip_packer();
         if ($zipper->archive_to_pathname($files, $tempzip)) {
             return $tempzip;
         }
@@ -74,15 +77,15 @@ class local_instructor_files_helper {
     public static function get_file_ids($courseid, $contextid) {
         global $DB;
 
+        $roles = get_config('local_instructor_files', 'roles');
+
         $query = "SELECT id FROM {files} f
             WHERE f.filesize <> 0
 	          AND (
 	             userid IN (
 			              SELECT distinct u.id FROM {course} c, {role_assignments} ra, {user} u, {context}  ct
 			              WHERE c.id = ct.instanceid AND ra.userid = u.id AND ct.id = ra.contextid
-			              AND ra.roleid IN (
-				                SELECT id from {role} r WHERE r.shortname in ('editingteacher', 'teacher', 'coursedesigner')
-			              ) AND c.id = $courseid
+			              AND ra.roleid IN ($roles) AND c.id = $courseid
 		           ) OR (
 			              f.component='mod_resource' AND f.userid IS NULL AND f.author IS NULL AND f.license IS NULL
 			              AND f.source like '%/%'
@@ -96,5 +99,28 @@ class local_instructor_files_helper {
        AND (f.component != 'assignfeedback_editpdf' AND f.component != 'backup' AND f.filearea != 'stamps')";
         $fileids = $DB->get_records_sql($query);
         return $fileids;
+    }
+
+    /**
+     * Get the roles suitable for a selector.
+     *
+     * @return array
+     */
+    public static function get_roles() {
+        global $DB;
+
+        $roles = $DB->get_records_menu('role', null, '', 'id, shortname');
+        return $roles;
+    }
+
+    /**
+     * Get the default roles.
+     *
+     * @param array $roles The system roles.
+     * @return array
+     */
+    public static function get_default_roles($roles) {
+        $defaultrolenames = array('editingteacher', 'teacher');
+        return array_keys(array_intersect($roles, $defaultrolenames));
     }
 }

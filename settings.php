@@ -15,31 +15,28 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Download all instructor files from a given course.
+ * Local instructor files settings definitions.
  *
  * @package   local_instructor_files
  * @copyright 2017 Lafayette College ITS
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-require_once(dirname(__FILE__) . '/../../config.php');
+defined('MOODLE_INTERNAL') || die();
 
-$id     = required_param('id', PARAM_INT);
-$course = $DB->get_record('course', array('id' => $id), '*', MUST_EXIST);
+if ($hassiteconfig) {
+    $settings = new admin_settingpage('local_instructor_files', get_string('pluginname', 'local_instructor_files'));
+    $ADMIN->add('localplugins', $settings);
 
-// Force login.
-require_login($course);
+    // Role selector.
+    $roles = local_instructor_files\helper::get_roles();
+    $defaultroles = local_instructor_files\helper::get_default_roles($roles);
 
-// Check permissions.
-$coursecontext = context_course::instance($course->id);
-require_capability('local/instructor_files:download', $coursecontext);
-
-// Get files.
-$zipfile = local_instructor_files\helper::get_files($course->id, $coursecontext->id);
-if ($zipfile !== false) {
-    $filename = clean_filename($course->shortname .'.zip');
-    send_temp_file($zipfile, $filename);
+    $settings->add(
+        new admin_setting_configmultiselect('local_instructor_files/roles',
+        get_string('roles', 'local_instructor_files'),
+        get_string('roles_desc', 'local_instructor_files'),
+        $defaultroles,
+        $roles)
+    );
 }
-
-$returnurl = new moodle_url('/course/view.php', array('id' => $course->id));
-print_error('nofiles', 'local_instructor_files', $returnurl);

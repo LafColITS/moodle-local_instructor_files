@@ -28,7 +28,7 @@ class local_instructor_files_helper {
         global $CFG;
 
         require_once($CFG->libdir.'/filelib.php');
-        $fileids = self::build_file_query($courseid, $contextid);
+        $fileids = self::get_file_ids($courseid, $contextid);
         if (!$fileids) {
             return false;
         }
@@ -63,7 +63,15 @@ class local_instructor_files_helper {
         return false;
     }
 
-    private static function build_file_query($courseid, $contextid) {
+    /**
+     * Get the file ids to be archived.
+     *
+     * @param int $courseid The course in question.
+     * @param int $contextid The course context.
+     *
+     * @return array
+     */
+    public static function get_file_ids($courseid, $contextid) {
         global $DB;
 
         $query = "SELECT id FROM {files} f

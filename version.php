@@ -22,8 +22,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2017062000;
-$plugin->requires  = 2016052300;
+$plugin->version   = 2017080701;
+$plugin->requires  = 2016120500;
 $plugin->component = 'local_instructor_files';
 $plugin->maturity  = MATURITY_ALPHA;
 $plugin->release   = 'v0.0.1';

@@ -41,5 +41,12 @@ if ($zipfile !== false) {
     send_temp_file($zipfile, $filename);
 }
 
+// No files; notify the user.
+$PAGE->set_url('/local/instructor_files/index.php', array('id' => $id));
+$PAGE->set_pagelayout('report');
+$PAGE->set_title(get_string('download', 'local_instructor_files'));
+$PAGE->set_heading($course->fullname);
 $returnurl = new moodle_url('/course/view.php', array('id' => $course->id));
-print_error('nofiles', 'local_instructor_files', $returnurl);
+echo $OUTPUT->header();
+notice(get_string('nofiles', 'local_instructor_files'), $returnurl);
+echo $OUTPUT->footer();

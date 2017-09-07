@@ -1,7 +1,7 @@
 Download instructor files
 =========================
 
-[![Build Status](https://api.travis-ci.org/mackensen/moodle-local_instructor_files.png)](https://api.travis-ci.org/mackensen/moodle-local_instructor_files)
+[![Build Status](https://api.travis-ci.org/LafColITS/moodle-local_instructor_files.png?branch=MOODLE_31_STABLE)](https://api.travis-ci.org/LafColITS/moodle-local_instructor_files)
 
 This local module allows a teacher to download all files uploaded by teachers to a given course in Moodle.
 

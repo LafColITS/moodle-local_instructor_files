@@ -7,7 +7,7 @@ This local module allows a teacher to download all files uploaded by teachers to
 
 Requirements
 ------------
-- Moodle 3.2 (build 2016120500 or later)
+- Moodle 3.4 (build 2017111300 or later)
 
 Installation
 ------------

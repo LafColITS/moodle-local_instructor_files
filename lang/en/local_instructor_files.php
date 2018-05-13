@@ -28,5 +28,6 @@ $string['download'] = 'Download instructor files';
 $string['instructor_files:download'] = 'Download instructor files';
 $string['nofiles'] = 'There are no files to download';
 $string['pluginname'] = 'Download instructor files';
+$string['privacy:metadata'] = 'The Download instructor files plugin does not store any personal data.';
 $string['roles'] = 'Instructor roles';
 $string['roles_desc'] = 'Download files associated with these roles';

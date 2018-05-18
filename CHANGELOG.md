@@ -1,10 +1,5 @@
 # Changelog
 
-## 3.1.1 - 2017-09-07
+## 3.0.0 (May 18, 2018)
 
-- Added friendlier notice when no downloads are available
-- Localized alt text on icon
-
-## 3.1.0 - 2017-08-07
-
-- Initial release for Moodle 3.1
+- Backported Moodle 3.1 release for Moodle 3.0

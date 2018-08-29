@@ -18,5 +18,5 @@ Feature: Local instructor files allows a teacher to download teaching materials 
   Scenario: Ensure graceful failure when no files are present
     Given I log in as "teacher1"
     And I am on "Course 1" course homepage
-    And I navigate to "Download instructor files" node in "Course administration"
+    And I navigate to "Download instructor files" in current page administration
     Then I should see "There are no files to download"

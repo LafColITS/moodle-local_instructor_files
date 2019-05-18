@@ -26,7 +26,21 @@ namespace local_instructor_files;
 
 defined('MOODLE_INTERNAL') || die();
 
+/**
+ * Helper functions.
+ *
+ * @package   local_instructor_files
+ * @copyright 2016 UMass Amherst
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class helper {
+    /**
+     * Get all the instructor files for a given course.
+     *
+     * @param int $courseid the course id
+     * @param int $contextid the course context id
+     * @return string path to a zip archive containing the files
+     */
     public static function get_files($courseid, $contextid) {
         global $CFG;
 
@@ -56,6 +70,12 @@ class helper {
         return self::pack_files($filesforzipping);
     }
 
+    /**
+     * Create a zip archive containing all the instructor files.
+     *
+     * @param array $files all the filenames to be archived
+     * @return string path to a zip archive containing the files
+     */
     private static function pack_files($files) {
         global $CFG;
         $tempzip = tempnam($CFG->tempdir . '/', 'local_instructor_files_');

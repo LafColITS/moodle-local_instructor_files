@@ -24,6 +24,13 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+/**
+ * Extends core navigation to display the download files link in the course administration.
+ *
+ * @param navigation_node $navigation The navigation node to extend
+ * @param stdClass        $course The course object
+ * @param context         $context The course context
+ */
 function local_instructor_files_extend_navigation_course($navigation, $course, $context) {
     if (has_capability('local/instructor_files:download', $context)) {
         $url = new moodle_url('/local/instructor_files/index.php', array('id' => $course->id));

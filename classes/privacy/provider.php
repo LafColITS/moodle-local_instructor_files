@@ -26,6 +26,13 @@ namespace local_instructor_files\privacy;
 
 defined('MOODLE_INTERNAL') || die();
 
+/**
+ * Privacy implementation for local_instructor_files.
+ *
+ * @package   local_instructor_files
+ * @copyright 2018 Lafayette College ITS
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class provider implements
     // This plugin does not store any personal user data.
     \core_privacy\local\metadata\null_provider {

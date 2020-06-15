@@ -34,7 +34,13 @@ defined('MOODLE_INTERNAL') || die();
 function local_instructor_files_extend_navigation_course($navigation, $course, $context) {
     if (has_capability('local/instructor_files:download', $context)) {
         $url = new moodle_url('/local/instructor_files/index.php', array('id' => $course->id));
-        $navigation->add(get_string('download', 'local_instructor_files'), $url,
-                navigation_node::TYPE_SETTING, null, null, new pix_icon('i/download_files', get_string('download'), 'local_instructor_files'));
+        $navigation->add(
+            get_string('download', 'local_instructor_files'),
+            $url,
+            navigation_node::TYPE_SETTING,
+            null,
+            null,
+            new pix_icon('i/download_files', get_string('download'), 'local_instructor_files')
+        );
     }
 }

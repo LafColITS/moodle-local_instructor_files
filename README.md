@@ -1,7 +1,7 @@
 Download instructor files
 =========================
 
-[![Build Status](https://travis-ci.org/LafColITS/moodle-local_instructor_files.svg)](https://travis-ci.org/LafColITS/moodle-local_instructor_files)
+![Moodle Plugin CI](https://github.com/LafColITS/moodle-local_instructor_files/workflows/Moodle%20Plugin%20CI/badge.svg)
 
 This local module allows a teacher to download all files uploaded by teachers to a given course in Moodle.
 

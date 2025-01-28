@@ -33,7 +33,7 @@ defined('MOODLE_INTERNAL') || die();
  * @copyright  2017 Lafayette College ITS
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class local_instructor_files_download_testcase extends advanced_testcase {
+class local_instructor_files_download_test extends advanced_testcase {
     /** @var int The number of files to be downloaded. */
     protected $filecount = 0;
 

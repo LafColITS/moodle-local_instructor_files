@@ -23,7 +23,10 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+namespace local_instructor_files;
+
+use advanced_testcase;
+use context_course;
 
 /**
  * Unit tests for tasks.
@@ -33,7 +36,7 @@ defined('MOODLE_INTERNAL') || die();
  * @copyright  2017 Lafayette College ITS
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class local_instructor_files_download_test extends advanced_testcase {
+class download_test extends advanced_testcase {
     /** @var int The number of files to be downloaded. */
     protected $filecount = 0;
 

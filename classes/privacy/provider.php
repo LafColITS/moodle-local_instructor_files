@@ -24,8 +24,6 @@
 
 namespace local_instructor_files\privacy;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Privacy implementation for local_instructor_files.
  *
@@ -43,7 +41,7 @@ class provider implements
      *
      * @return  string
      */
-    public static function get_reason() : string {
+    public static function get_reason(): string {
         return 'privacy:metadata';
     }
 }

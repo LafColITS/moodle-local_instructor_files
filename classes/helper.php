@@ -24,8 +24,6 @@
 
 namespace local_instructor_files;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Helper functions.
  *

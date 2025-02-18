@@ -58,7 +58,7 @@ class download_test extends advanced_testcase {
         $this->create_file(array('userid' => $teacher1->id, 'contextid' => $context->id, 'component' => 'backup'));
 
         // Verify returned files.
-        $fileids = local_instructor_files\helper::get_file_ids($course1->id, $context->id);
+        $fileids = helper::get_file_ids($course1->id, $context->id);
         $this->assertEquals(2, count($fileids));
     }
 

@@ -42,19 +42,19 @@ class helper {
     public static function get_files($courseid, $contextid) {
         global $CFG;
 
-        require_once($CFG->libdir.'/filelib.php');
+        require_once($CFG->libdir . '/filelib.php');
         $fileids = self::get_file_ids($courseid, $contextid);
         if (!$fileids) {
             return false;
         }
 
         $fs = get_file_storage();
-        $filenames = array();
+        $filenames = [];
 
         foreach ($fileids as $id => $fileid) {
             $file = $fs->get_file_by_id($fileid->id);
             if (in_array($file->get_filename(), $filenames)) {
-                $newfilename = $fileid->id .'-'. $file->get_filename();
+                $newfilename = $fileid->id . '-' . $file->get_filename();
             } else {
                 $newfilename = $file->get_filename();
             }
@@ -138,7 +138,7 @@ class helper {
      * @return array
      */
     public static function get_default_roles($roles) {
-        $defaultrolenames = array('editingteacher', 'teacher');
+        $defaultrolenames = ['editingteacher', 'teacher'];
         return array_keys(array_intersect($roles, $defaultrolenames));
     }
 }

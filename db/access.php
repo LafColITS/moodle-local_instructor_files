@@ -24,15 +24,15 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$capabilities = array(
-    'local/instructor_files:download' => array(
+$capabilities = [
+    'local/instructor_files:download' => [
         'riskbitmask' => RISK_PERSONAL,
         'captype' => 'read',
         'contextlevel' => CONTEXT_COURSE,
-        'archetypes' => array(
+        'archetypes' => [
             'editingteacher' => CAP_ALLOW,
             'manager' => CAP_ALLOW,
-        ),
+        ],
         'clonepermissionsfrom' => 'moodle/course:update',
-    ),
-);
+    ],
+];

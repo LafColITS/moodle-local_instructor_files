@@ -52,10 +52,10 @@ class download_test extends advanced_testcase {
         $this->getDataGenerator()->enrol_user($teacher1->id, $course1->id, 'editingteacher');
 
         // Add some files.
-        $this->create_file(array('userid' => $teacher1->id, 'contextid' => $context->id));
-        $this->create_file(array('userid' => $manager1->id, 'contextid' => $context->id));
-        $this->create_file(array('userid' => $teacher1->id, 'contextid' => $context->id));
-        $this->create_file(array('userid' => $teacher1->id, 'contextid' => $context->id, 'component' => 'backup'));
+        $this->create_file(['userid' => $teacher1->id, 'contextid' => $context->id]);
+        $this->create_file(['userid' => $manager1->id, 'contextid' => $context->id]);
+        $this->create_file(['userid' => $teacher1->id, 'contextid' => $context->id]);
+        $this->create_file(['userid' => $teacher1->id, 'contextid' => $context->id, 'component' => 'backup']);
 
         // Verify returned files.
         $fileids = helper::get_file_ids($course1->id, $context->id);

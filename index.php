@@ -25,7 +25,7 @@
 require_once(dirname(__FILE__) . '/../../config.php');
 
 $id     = required_param('id', PARAM_INT);
-$course = $DB->get_record('course', array('id' => $id), '*', MUST_EXIST);
+$course = $DB->get_record('course', ['id' => $id], '*', MUST_EXIST);
 
 // Force login.
 require_login($course);
@@ -37,16 +37,16 @@ require_capability('local/instructor_files:download', $coursecontext);
 // Get files.
 $zipfile = local_instructor_files\helper::get_files($course->id, $coursecontext->id);
 if ($zipfile !== false) {
-    $filename = clean_filename($course->shortname .'.zip');
+    $filename = clean_filename($course->shortname . '.zip');
     send_temp_file($zipfile, $filename);
 }
 
 // No files; notify the user.
-$PAGE->set_url('/local/instructor_files/index.php', array('id' => $id));
+$PAGE->set_url('/local/instructor_files/index.php', ['id' => $id]);
 $PAGE->set_pagelayout('report');
 $PAGE->set_title(get_string('download', 'local_instructor_files'));
 $PAGE->set_heading($course->fullname);
-$returnurl = new moodle_url('/course/view.php', array('id' => $course->id));
+$returnurl = new moodle_url('/course/view.php', ['id' => $course->id]);
 echo $OUTPUT->header();
 notice(get_string('nofiles', 'local_instructor_files'), $returnurl);
 echo $OUTPUT->footer();

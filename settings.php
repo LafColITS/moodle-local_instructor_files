@@ -33,10 +33,12 @@ if ($hassiteconfig) {
     $defaultroles = local_instructor_files\helper::get_default_roles($roles);
 
     $settings->add(
-        new admin_setting_configmultiselect('local_instructor_files/roles',
-        get_string('roles', 'local_instructor_files'),
-        get_string('roles_desc', 'local_instructor_files'),
-        $defaultroles,
-        $roles)
+        new admin_setting_configmultiselect(
+            'local_instructor_files/roles',
+            get_string('roles', 'local_instructor_files'),
+            get_string('roles_desc', 'local_instructor_files'),
+            $defaultroles,
+            $roles
+        )
     );
 }

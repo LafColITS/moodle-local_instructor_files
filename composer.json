@@ -1,0 +1,12 @@
+{
+    "name": "lafayettecollege/moodle-local_instructor_files",
+    "description": "This local module allows a teacher to download all files uploaded by teachers to a given course in Moodle.",
+    "type": "moodle-local",
+    "require": {
+        "composer/installers": "*"
+    },
+    "license": "GPL-3.0-or-later",
+    "extra": {
+        "installer-name": "instructor_files"
+    }
+}

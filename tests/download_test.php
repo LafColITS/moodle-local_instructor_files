@@ -27,20 +27,22 @@ namespace local_instructor_files;
 
 use advanced_testcase;
 use context_course;
+use stored_file;
 
 /**
  * Unit tests for tasks.
  *
  * @package    local_instructor_files
+ * @covers     \local_instructor_files\helper
  * @category   test
  * @copyright  2017 Lafayette College ITS
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class download_test extends advanced_testcase {
+final class download_test extends advanced_testcase {
     /** @var int The number of files to be downloaded. */
     protected $filecount = 0;
 
-    public function test_download() {
+    public function test_download(): void {
         $this->setAdminUser();
         $this->resetAfterTest(true);
 
@@ -68,7 +70,7 @@ class download_test extends advanced_testcase {
      * @param array $options
      * @return object stored_file
      */
-    private function create_file($options) {
+    private function create_file($options): stored_file {
         global $DB;
 
         // Increment the file counter.
